@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Permanent Marker", cursive;
   margin: 0;
@@ -10,7 +14,7 @@ body {
 
 
 .bg-container {
-  height: 100vh;
+  height: 100%;
   background: rgb(0,0,0);
   background: linear-gradient(180deg, rgba(0,0,0,0.8029586834733894) 0%, rgba(0,0,0,0.5956757703081232) 45%, rgba(0,0,0,0.396796218487395) 85%, rgba(0,0,0,0) 100%);
 }
@@ -56,18 +60,28 @@ h1 {
   margin-top: 220px;
 }
 
-.body-container .body-text-containe{
-  background: rgb(0,0,0);
-  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.23034434713375795) 23%, rgba(0,0,0,0.31951632165605093) 44%, rgba(0,0,0,0.3227010350318471) 72%, rgba(0,0,0,0) 100%);
-}
 
-p {
+p, .guest-container h1, .donation-container h1  {
   font-family: "Bebas Neue", sans-serif;
 }
 
 .body-container p {
   font-size: 20px;
-  margin: 20px 30px 0 30px;
+  margin: 20px 25% 0 25%;
+}
+
+.guest-container h1, .donation-container h1 {
+  font-size: 70px
+}
+
+.guest-grid .guest {
+  width: 200px;
+  height: 200px;
+
+}
+
+.custom-gap {
+  gap: 10px;
 }
 
 
