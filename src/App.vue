@@ -56,7 +56,7 @@
                     </div>
                     <div class="text-container">
                         <h1 class="content-center text-center">Gatachicaton</h1>
-                        <h2 class="content-center text-center -rotate-3"><a href="https://twitch.tv/retniuwu">twitch.tv/retniuwu</a></h2>
+                        <h2 class="content-center text-center -rotate-3 grow"><a href="https://twitch.tv/retniuwu">twitch.tv/retniuwu</a></h2>
                     </div>
                 </div>
                 
