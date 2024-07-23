@@ -84,4 +84,25 @@ p, .guest-container h1, .donation-container h1  {
   gap: 10px;
 }
 
+.coming-soon {
+  font-size: 70px;
+  font-family: "Permanent Marker", cursive !important;
+}
+
+@media (max-width: 412px) {
+  .header-container h1 {
+      font-size: 7vw;
+  }
+
+  .header-container h2{
+      font-size: 6vw;
+  }
+
+  .coming-soon {
+      font-size: 12vw !important;
+      font-family: "Permanent Marker", cursive !important;
+  }
+
+}
+
 

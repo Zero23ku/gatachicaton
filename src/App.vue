@@ -8,6 +8,8 @@
         link: ''
     })
 
+    const renderGuests = false;
+
     function selectVtuber(vtuber) {
         switch(vtuber) {
             case 1:
@@ -66,14 +68,14 @@
             </div>
             <div class="text-container">
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nec efficitur nunc. In bibendum nisl mi, a maximus leo commodo at. Ut velit massa, dictum ut blandit a, sagittis in purus. Vivamus eu urna vitae nisl aliquam gravida. Aenean porta, quam et porta iaculis, eros orci lacinia nunc, sit amet laoreet nibh lorem in diam. Quisque sollicitudin lacus et dignissim semper. Aenean pharetra arcu in libero pharetra aliquet.
-                    Phasellus vel iaculis tellus. Nulla non eros consectetur, porta libero eu, sollicitudin libero. Nullam eu pretium magna. Sed sit amet faucibus sapien, ac faucibus quam. Fusce porttitor venenatis consequat. Etiam cursus, dolor ut pellentesque feugiat, ante lacus rhoncus nisl, at vestibulum nunc magna eu ex. Duis nec hendrerit tellus. Nulla semper leo ac lectus vehicula, non maximus metus rhoncus.
+                    Ella es sombra, mas conocida como "la gata chica". Tiene 6 meses de edad y sufre de una displacía de cadera bilateral producida por una artrosis congénita, por lo que necesita ser intervenida quirúrgicamente en ambas patas traseras.
+                    Este evento tiene como único fin reunir fondos para ayudar a amortiguar el costo de las cirugías necesarias y tratamientos post operatorios de Sombra, que a día de hoy ascienden a 850 usd aproximadamente.
                 </p>
             </div>
         </div>
         <div id="guests" class="body-container guest-container">
             <h1 class="content-center text-center">Invitados</h1>
-            <div class="grid grid-cols-2 gap-4">
+            <div v-if="renderGuests" class="grid grid-cols-2 gap-4">
                 <div class="flex flex-col items-center">
 
                     <div class="mb-2"><a @click="selectVtuber(1)" class=""><img src="./assets/guest_mock.jpeg"/></a></div>
@@ -84,6 +86,9 @@
                 </div>
                 <VtuberInfo :imgSrc="vtuberData.imgSrc" :link="vtuberData.link"/>
      
+            </div>
+            <div v-else>
+                <h1 class="content-center text-center coming-soon -rotate-3">Próximamente</h1>
             </div>
         </div>
         <div id="helpus" class="body-container donation-container mb-28">
@@ -102,5 +107,16 @@
 </template>
 
 <style scoped>
+    
+
+    .grow { 
+        transition: all .2s ease-in-out; 
+    }
+
+    .grow:hover { 
+        transform: scale(1.1); 
+    }
+
+    
 
 </style>
