@@ -1,7 +1,7 @@
 <script setup>
     import { reactive, ref } from 'vue';
     import VtuberInfo from './components/VtuberInfo.vue'
-    import vtuber_mock from '@/assets/vtuber_mock.png'
+    import vtuber_mock from './assets/vtuber_mock.png'
 
     const vtuberData = reactive({
         imgSrc: '',
