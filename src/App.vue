@@ -1,38 +1,15 @@
 <script setup>
     import { reactive } from 'vue';
     import VtuberInfo from './components/VtuberInfo.vue'
-    import vtuber_mock from './assets/vtuber_mock.png'
 
     const vtuberData = reactive({
-        imgSrc: '',
-        link: ''
+        day: 0
     })
 
     const renderGuests = true;
 
-    function selectVtuber(vtuber) {
-        switch(vtuber) {
-            case 1:
-                vtuberData.imgSrc = vtuber_mock
-                vtuberData.link = 'https://twitch.tv/test1'
-                break;
-            case 2:
-                vtuberData.imgSrc = vtuber_mock
-                vtuberData.link = 'https://twitch.tv/test2'
-                break;
-            case 3:
-                vtuberData.imgSrc = vtuber_mock
-                vtuberData.link = 'https://twitch.tv/test3'
-                break;
-            case 4:
-                vtuberData.imgSrc = vtuber_mock
-                vtuberData.link = 'https://twitch.tv/test4'
-                break;
-            case 5:
-                vtuberData.imgSrc = vtuber_mock
-                vtuberData.link = 'https://twitch.tv/test5'
-                break;
-        }
+    function selectDay(day) {
+        vtuberData.day = day
     }
 </script>
 
@@ -42,7 +19,7 @@
             <div class="header-container">
                 <div class="menu grid grid-cols-3 gap-4 content-center text-center">
                     <div><a href="#about">Sobre el evento</a></div>
-                    <div><a href="#guests">Invitados</a></div>
+                    <div><a href="#guests">Actividades</a></div>
                     <div><a href="#helpus">Apoya la causa</a></div>
                 </div>
                 <div class="logo-container">
@@ -69,20 +46,17 @@
             </div>
         </div>
         <div id="guests" class="body-container guest-container">
-            <h1 class="content-center text-center">Invitados</h1>
+            <h1 class="content-center text-center">Actividades</h1>
             <div v-if="renderGuests" class="grid grid-col-2 gap-4">
                 <div id="guestsDay" class="flex flex-col items-center justify-center">
-                    <div class="mb-2 cursor-pointer mx-10"><a @click="selectVtuber(1)" class=""><h2>Lunes</h2></a></div>
-                    <div class="mb-2 cursor-pointer mx-10"><a @click="selectVtuber(2)" class=""><h2>Martes</h2></a></div>
-                    <div class="mb-2 cursor-pointer mx-10"><a @click="selectVtuber(3)" class=""><h2>Miércoles</h2></a></div>
-                    <div class="mb-2 cursor-pointer mx-10"><a @click="selectVtuber(4)" class=""><h2>Jueves</h2></a></div>
-                    <div class="mb-2 cursor-pointer mx-10"><a @click="selectVtuber(5)" class=""><h2>Viernes</h2></a></div>
+                    <div class="mb-2 cursor-pointer mx-10"><a @click="selectDay(1)" class=""><h2>Lunes</h2></a></div>
+                    <div class="mb-2 cursor-pointer mx-10"><a @click="selectDay(2)" class=""><h2>Martes</h2></a></div>
+                    <div class="mb-2 cursor-pointer mx-10"><a @click="selectDay(3)" class=""><h2>Miércoles</h2></a></div>
+                    <div class="mb-2 cursor-pointer mx-10"><a @click="selectDay(4)" class=""><h2>Jueves</h2></a></div>
+                    <div class="mb-2 cursor-pointer mx-10"><a @click="selectDay(5)" class=""><h2>Viernes</h2></a></div>
                 </div>
-                <VtuberInfo :imgSrc="vtuberData.imgSrc" :link="vtuberData.link"/>
-     
-            </div>
-            <div v-else>
-                <h1 class="content-center text-center coming-soon -rotate-3">Próximamente</h1>
+                <VtuberInfo :day="vtuberData.day"/>
+    
             </div>
         </div>
         <div id="helpus" class="body-container donation-container mb-28">
@@ -109,6 +83,18 @@
 
     .grow:hover { 
         transform: scale(1.1); 
+    }
+
+    #guestsDay h2 {
+        font-size: 30px !important;
+    }
+
+    #guests h1, #helpus h1 {
+        font-size: 40px !important;
+    }
+    
+    .donations-content {
+        text-align: center;
     }
 
     
