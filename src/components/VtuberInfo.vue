@@ -217,8 +217,8 @@
 
     #lunes-container {
         background-image: url('../assets/lunes/fondo.png');
-        max-width: 500px;
-        max-height: 270px;
+        max-width: 700px;
+        max-height: 470px;
         width: 100%;
         height: auto;
         margin-bottom: 10px;
@@ -231,7 +231,7 @@
     }
 
     #martesS, #miercolesS, #juevesS, #viernesS {
-        max-width: 70%;
+        max-width: 50%;
     }
 
     .vtuber-icon-first-row {
