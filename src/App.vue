@@ -1,6 +1,12 @@
 <script setup>
-    import { reactive } from 'vue';
+    import { reactive, onMounted, onUnmounted } from 'vue';
     import VtuberInfo from './components/VtuberInfo.vue'
+    import peo from './assets/peo.wav'
+    let keyList = []
+    let intervalId = null
+    const kCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a', 'Enter']
+
+    const sound = new Audio(peo)
 
     const vtuberData = reactive({
         day: 0
@@ -13,10 +19,54 @@
         vtuberData.day = day
         activeDay = day
     }
+
+    function handleKeyDown(event) {
+        console.log("test")
+        console.logI(event)
+    }
+
+    function clearKeyList() {
+        console.log("limpiando las teclas")
+        console.log(keyList)
+        keyList = []
+    }
+
+    function isCodeValid() {
+        if( (keyList.length === kCode.length) && keyList[0] === kCode[0] && keyList[1] == kCode[1] &&  keyList[2] === kCode[2] &&
+            keyList[3] === kCode[3] && keyList[4] === kCode[4] && keyList[5] === kCode[5] && keyList[6] === kCode[6] && keyList[7] === kCode[7] && 
+            keyList[8].toLowerCase() === kCode[8] && keyList[9].toLowerCase() === kCode[9] && keyList[10] === kCode[10]  ) {
+            
+            return true
+        }
+
+        return false
+
+
+    }
+
+
+    onMounted(() => {
+        console.log("yeeey")
+        window.addEventListener('keydown', (event) => {
+            clearInterval(intervalId)
+            keyList.push(event.key)
+            if(isCodeValid()) {
+
+                sound.play()
+            }
+            intervalId = setInterval(clearKeyList, 5000)
+            
+        });
+
+        intervalId = setInterval(clearKeyList, 5000)
+        onUnmounted(() => {
+            
+        })
+    })
 </script>
 
 <template>
-    <div class="bg-container">
+    <div class="bg-container" @keydown="handleKeyDown(e)">
         <header>
             <div class="header-container">
                 <div class="menu grid grid-cols-3 gap-4 content-center text-center">
