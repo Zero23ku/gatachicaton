@@ -70,9 +70,7 @@ p, .guest-container h1, .donation-container h1  {
   margin: 20px 25% 0 25%;
 }
 
-.guest-container h1, .donation-container h1 {
-  font-size: 3.65vw;
-}
+
 
 .guest-grid .guest {
   width: 200px;
@@ -82,11 +80,6 @@ p, .guest-container h1, .donation-container h1  {
 
 .custom-gap {
   gap: 10px;
-}
-
-.coming-soon {
-  font-size: 70px;
-  font-family: "Permanent Marker", cursive !important;
 }
 
 @media (max-width: 500px) {

@@ -7,9 +7,11 @@
     })
 
     const renderGuests = true;
+    let activeDay = 0
 
     function selectDay(day) {
         vtuberData.day = day
+        activeDay = day
     }
 </script>
 
@@ -28,7 +30,9 @@
                     </div>
                     <div class="text-container">
                         <h1 class="content-center text-center">Gatachicaton</h1>
+                        <h2 class="content-center text-center ">Del Lunes 5 al Viernes 9 de Agosto</h2>
                         <h2 class="content-center text-center -rotate-3 grow"><a href="https://twitch.tv/retniuwu">twitch.tv/retniuwu</a></h2>
+                        
                     </div>
                 </div>
                 
@@ -49,11 +53,11 @@
             <h1 class="content-center text-center">Actividades</h1>
             <div v-if="renderGuests" class="grid grid-col-2 gap-4">
                 <div id="guestsDay" class="flex flex-col items-center justify-center">
-                    <div class="mb-2 cursor-pointer mx-10"><a @click="selectDay(1)" class=""><h2>Lunes</h2></a></div>
-                    <div class="mb-2 cursor-pointer mx-10"><a @click="selectDay(2)" class=""><h2>Martes</h2></a></div>
-                    <div class="mb-2 cursor-pointer mx-10"><a @click="selectDay(3)" class=""><h2>Miércoles</h2></a></div>
-                    <div class="mb-2 cursor-pointer mx-10"><a @click="selectDay(4)" class=""><h2>Jueves</h2></a></div>
-                    <div class="mb-2 cursor-pointer mx-10"><a @click="selectDay(5)" class=""><h2>Viernes</h2></a></div>
+                    <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 1}"><a @click="selectDay(1)" class=""><h2>Lunes</h2></a></div>
+                    <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 2}"><a @click="selectDay(2)" class=""><h2>Martes</h2></a></div>
+                    <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 3}"><a @click="selectDay(3)" class=""><h2>Miércoles</h2></a></div>
+                    <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 4}"><a @click="selectDay(4)" class=""><h2>Jueves</h2></a></div>
+                    <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 5}"><a @click="selectDay(5)" class=""><h2>Viernes</h2></a></div>
                 </div>
                 <VtuberInfo :day="vtuberData.day"/>
     
@@ -75,6 +79,10 @@
 </template>
 
 <style scoped>
+
+    .animation {
+        transition: all .2s ease-in-out; 
+    }
     
 
     .grow { 
@@ -90,11 +98,22 @@
     }
 
     #guests h1, #helpus h1 {
-        font-size: 40px !important;
+        font-size: 4.3vw;
     }
     
     .donations-content {
         text-align: center;
+    }
+
+    .activeDay {
+        transform: rotate(45deg);
+    }
+
+    @media (max-width: 768px) {
+        
+        #guests h1, #helpus h1 {
+            font-size: 10vw;
+        }   
     }
 
     

@@ -24,8 +24,12 @@
     let whosActive = ref(0)
     const props = defineProps(['day'])
     let socialNetwork = ref("")
+    const isMondayActive = false;
 
     function handleMouseOver(guest) {
+        if(!isMondayActive){
+            return
+        }
 
         switch(guest) {
             case 1:
@@ -56,6 +60,9 @@
     }
 
     function handleMouseOut(guest) {
+        if(!isMondayActive){
+            return
+        }
 
         switch(guest) {
             case 1:
@@ -93,6 +100,9 @@
     }
 
     function handleClick(guest) {
+        if(!isMondayActive){
+            return
+        }
         hideEveryone()
         switch(guest) {
             case 1:
@@ -142,8 +152,8 @@
 <template>
 
     <div v-if="props.day == 1" class="guest-details flex flex-col justify-center items-center">
-        <div>
-            <img src="../assets/lunes/titulo poke.png"/>
+        <div class="flex flex-col justify-center items-center">
+            <img id="pokedibujo" src="../assets/lunes/titulo poke.png"/>
         </div>
         <div id="lunes-container" class="bg-cover bg-center">
             <div class="grid grid-row-2">
@@ -160,8 +170,11 @@
 
             </div>
         </div>
-        <div class="text-center">
+        <div v-if="isMondayActive" class="text-center">
             <a href="#"> {{ socialNetwork }} </a>
+        </div>
+        <div v-else class="coming-soon text-center">
+            <h1>Próximamente más información</h1>
         </div>
     </div>
     <div v-if="props.day == 2 || props.day == 3 || props.day == 4 || props.day == 5">
@@ -169,8 +182,12 @@
     </div>
 </template>
 <style scoped>
-    p {
+    p{
         font-family: "Bebas Neue", sans-serif;
+    }
+
+    h1 {
+        font-family: "Permanent Marker", cursive;;
     }
 
     a {
@@ -183,7 +200,13 @@
         max-height: 270px;
         width: 100%;
         height: auto;
+        margin-bottom: 10px;
         aspect-ratio: 500 / 270;
+    }
+
+    #pokedibujo {
+        max-width: 50%;
+        margin-bottom: 10px;
     }
 
     .vtuber-icon-first-row {
@@ -203,5 +226,22 @@
     #guests-first-row {
         padding-top: 3%;
         padding-left: 3%;
+    }
+
+    .coming-soon  {
+        font-family: "Permanent Marker", cursive !important;
+        font-size: 2.2vw !important;
+    }
+
+    @media (max-width: 768px) {
+        
+        #guests h1, #helpus h1 {
+            font-size: 10vw;
+        }
+
+        .coming-soon  {
+            font-family: "Permanent Marker", cursive !important;
+            font-size: 5vw !important;
+        }
     }
 </style>
