@@ -13,6 +13,10 @@
     import noxito from '../assets/lunes/noxito.png'
     import z_klair from '../assets/lunes/Klair.png'
     import vremya from '../assets/lunes/Vremya.png'
+    import mockTuesday from '../assets/martes/mock.png'
+    import mockWednesday from '../assets/miercoles/mock.png'
+    import mockThursday from '../assets/jueves/mock.png'
+    import mockFriday from '../assets/viernes/mock.png'
 
 
     let froppyImg = ref(froppyS);
@@ -177,8 +181,25 @@
             <h1>Próximamente más información</h1>
         </div>
     </div>
-    <div v-if="props.day == 2 || props.day == 3 || props.day == 4 || props.day == 5">
-        <h1 class="content-center text-center coming-soon -rotate-3">Próximamente</h1>
+    <div v-if="props.day == 2">
+        <div class="flex flex-col justify-center items-center">
+            <img id="martesS" :src="mockTuesday"/>
+        </div>
+    </div>
+    <div v-if="props.day == 3">
+        <div class="flex flex-col justify-center items-center">
+            <img id="miercolesS" :src="mockWednesday"/>
+        </div>
+    </div>
+    <div v-if="props.day == 4">
+        <div class="flex flex-col justify-center items-center">
+            <img id="juevesS" :src="mockThursday"/>
+        </div>
+    </div>
+    <div v-if="props.day == 5">
+        <div class="flex flex-col justify-center items-center">
+            <img id="viernesS" :src="mockFriday"/>
+        </div>
     </div>
 </template>
 <style scoped>
@@ -207,6 +228,10 @@
     #pokedibujo {
         max-width: 50%;
         margin-bottom: 10px;
+    }
+
+    #martesS, #miercolesS, #juevesS, #viernesS {
+        max-width: 70%;
     }
 
     .vtuber-icon-first-row {
