@@ -8,32 +8,27 @@
         link: ''
     })
 
-    const renderGuests = false;
+    const renderGuests = true;
 
     function selectVtuber(vtuber) {
         switch(vtuber) {
             case 1:
-            console.log(vtuber);
                 vtuberData.imgSrc = vtuber_mock
                 vtuberData.link = 'https://twitch.tv/test1'
                 break;
             case 2:
-                console.log(vtuber);
                 vtuberData.imgSrc = vtuber_mock
                 vtuberData.link = 'https://twitch.tv/test2'
                 break;
             case 3:
-                console.log(vtuber);
                 vtuberData.imgSrc = vtuber_mock
                 vtuberData.link = 'https://twitch.tv/test3'
                 break;
             case 4:
-                console.log(vtuber);
                 vtuberData.imgSrc = vtuber_mock
                 vtuberData.link = 'https://twitch.tv/test4'
                 break;
             case 5:
-                console.log(vtuber);
                 vtuberData.imgSrc = vtuber_mock
                 vtuberData.link = 'https://twitch.tv/test5'
                 break;
@@ -75,14 +70,13 @@
         </div>
         <div id="guests" class="body-container guest-container">
             <h1 class="content-center text-center">Invitados</h1>
-            <div v-if="renderGuests" class="grid grid-cols-2 gap-4">
-                <div class="flex flex-col items-center">
-
-                    <div class="mb-2"><a @click="selectVtuber(1)" class=""><img src="./assets/guest_mock.jpeg"/></a></div>
-                    <div class="mb-2"><a @click="selectVtuber(2)" class=""><img src="./assets/guest_mock.jpeg"/></a></div>
-                    <div class="mb-2"><a @click="selectVtuber(3)" class=""><img src="./assets/guest_mock.jpeg"/></a></div>
-                    <div class="mb-2"><a @click="selectVtuber(4)" class=""><img src="./assets/guest_mock.jpeg"/></a></div>
-                    <div class="mb-2"><a @click="selectVtuber(5)" class=""><img src="./assets/guest_mock.jpeg"/></a></div>
+            <div v-if="renderGuests" class="grid grid-col-2 gap-4">
+                <div id="guestsDay" class="flex flex-col items-center justify-center">
+                    <div class="mb-2 cursor-pointer mx-10"><a @click="selectVtuber(1)" class=""><h2>Lunes</h2></a></div>
+                    <div class="mb-2 cursor-pointer mx-10"><a @click="selectVtuber(2)" class=""><h2>Martes</h2></a></div>
+                    <div class="mb-2 cursor-pointer mx-10"><a @click="selectVtuber(3)" class=""><h2>Miércoles</h2></a></div>
+                    <div class="mb-2 cursor-pointer mx-10"><a @click="selectVtuber(4)" class=""><h2>Jueves</h2></a></div>
+                    <div class="mb-2 cursor-pointer mx-10"><a @click="selectVtuber(5)" class=""><h2>Viernes</h2></a></div>
                 </div>
                 <VtuberInfo :imgSrc="vtuberData.imgSrc" :link="vtuberData.link"/>
      

@@ -71,7 +71,7 @@ p, .guest-container h1, .donation-container h1  {
 }
 
 .guest-container h1, .donation-container h1 {
-  font-size: 70px
+  font-size: 3.65vw;
 }
 
 .guest-grid .guest {
@@ -89,7 +89,7 @@ p, .guest-container h1, .donation-container h1  {
   font-family: "Permanent Marker", cursive !important;
 }
 
-@media (max-width: 412px) {
+@media (max-width: 500px) {
   .header-container h1 {
       font-size: 7vw;
   }
