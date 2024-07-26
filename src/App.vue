@@ -20,14 +20,7 @@
         activeDay = day
     }
 
-    function handleKeyDown(event) {
-        console.log("test")
-        console.logI(event)
-    }
-
     function clearKeyList() {
-        console.log("limpiando las teclas")
-        console.log(keyList)
         keyList = []
     }
 
@@ -46,7 +39,7 @@
 
 
     onMounted(() => {
-        console.log("yeeey")
+        console.log("Que mirai guaton feo culiao y la conchetumare")
         window.addEventListener('keydown', (event) => {
             clearInterval(intervalId)
             keyList.push(event.key)
