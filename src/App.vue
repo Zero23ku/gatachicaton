@@ -45,14 +45,14 @@
             keyList.push(event.key)
             if(event.key === 'Enter' && isCodeValid()) {
                 sound.play()
-            }else {
+            }else if(event.key === 'Enter'){
                 clearKeyList()
             }
-            intervalId = setInterval(clearKeyList, 5000)
+            intervalId = setInterval(clearKeyList, 3000)
             
         });
 
-        intervalId = setInterval(clearKeyList, 5000)
+        intervalId = setInterval(clearKeyList, 3000)
         onUnmounted(() => {
             
         })
