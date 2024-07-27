@@ -43,9 +43,10 @@
         window.addEventListener('keydown', (event) => {
             clearInterval(intervalId)
             keyList.push(event.key)
-            if(isCodeValid()) {
-
+            if(event.key === 'Enter' && isCodeValid()) {
                 sound.play()
+            }else {
+                clearKeyList()
             }
             intervalId = setInterval(clearKeyList, 5000)
             
