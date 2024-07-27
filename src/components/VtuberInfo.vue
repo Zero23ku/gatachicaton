@@ -185,20 +185,32 @@
         <div class="flex flex-col justify-center items-center">
             <img id="martesS" :src="mockTuesday"/>
         </div>
+        <div class="coming-soon text-center">
+            <h1>Próximamente más información</h1>
+        </div>
     </div>
     <div v-if="props.day == 3">
         <div class="flex flex-col justify-center items-center">
             <img id="miercolesS" :src="mockWednesday"/>
+        </div>
+        <div class="coming-soon text-center">
+            <h1>Próximamente más información</h1>
         </div>
     </div>
     <div v-if="props.day == 4">
         <div class="flex flex-col justify-center items-center">
             <img id="juevesS" :src="mockThursday"/>
         </div>
+        <div class="coming-soon text-center">
+            <h1>Próximamente más información</h1>
+        </div>
     </div>
     <div v-if="props.day == 5">
         <div class="flex flex-col justify-center items-center">
             <img id="viernesS" :src="mockFriday"/>
+        </div>
+        <div class="coming-soon text-center">
+            <h1>Próximamente más información</h1>
         </div>
     </div>
 </template>
