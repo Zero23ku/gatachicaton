@@ -28,7 +28,7 @@
     let whosActive = ref(0)
     const props = defineProps(['day'])
     let socialNetwork = ref("")
-    const isMondayActive = false;
+    const isMondayActive = true;
 
     function handleMouseOver(guest) {
         if(!isMondayActive){
@@ -112,32 +112,32 @@
             case 1:
                 froppyImg.value = froppy
                 whosActive = 1
-                socialNetwork.value = 'Tuiter de Froppy'
+                socialNetwork.value = 'https://x.com/iamfroppy'
                 break;
             case 2:
                 amakuImg.value = amaku
                 whosActive = 2
-                socialNetwork.value = 'Tuiter de Amaku'
+                socialNetwork.value = 'https://x.com/Amakuwu'
                 break;
             case 3:
                 meruImg.value = meru
                 whosActive = 3
-                socialNetwork.value = 'Tuiter de Meru'
+                socialNetwork.value = 'https://x.com/Meruiwii'
                 break;
             case 4:
                 noxitoImg.value = noxito
                 whosActive = 4
-                socialNetwork.value = 'Tuiter de Noxito'
+                socialNetwork.value = 'https://x.com/N0cchi_'
                 break;
             case 5:
                 z_klairImg.value = z_klair
                 whosActive = 5
-                socialNetwork.value = 'Tuiter de z_klair'
+                socialNetwork.value = 'https://x.com/z_klair'
                 break;
             case 6:
                 vremyaImg.value = vremya
                 whosActive = 6
-                socialNetwork.value = 'Tuiter de Vremya'
+                socialNetwork.value = 'https://x.com/VremyasCourt'
                 break;
         }
     }
@@ -175,7 +175,7 @@
             </div>
         </div>
         <div v-if="isMondayActive" class="text-center">
-            <a href="#"> {{ socialNetwork }} </a>
+            <a :href="socialNetwork" target="_blank"> {{ socialNetwork }} </a>
         </div>
         <div v-else class="coming-soon text-center">
             <h1>Próximamente más información</h1>
@@ -268,6 +268,10 @@
     .coming-soon  {
         font-family: "Permanent Marker", cursive !important;
         font-size: 2.2vw !important;
+    }
+
+    .vtuber-icon-first-row, .vtuber-icon-second-row {
+        cursor: pointer;
     }
 
     @media (max-width: 768px) {
