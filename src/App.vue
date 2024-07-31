@@ -54,7 +54,7 @@
 
         intervalId = setInterval(clearKeyList, 3000)
         onUnmounted(() => {
-            
+            clearInterval(intervalId)
         })
     })
 </script>
