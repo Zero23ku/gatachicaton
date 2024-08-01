@@ -312,7 +312,7 @@
                 </div>
             </div>
         </div>
-        <div v-if="isTuesdayActive" class="text-center">
+        <div v-if="isWednesdayActive" class="text-center">
             <a :href="socialNetworkWednesday" target="_blank"> {{ socialNetworkWednesday }} </a>
         </div>
         <div v-else class="coming-soon text-center">
