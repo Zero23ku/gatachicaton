@@ -22,6 +22,10 @@
     import yunS from '../assets/martes/YunCatsilueta.png'
     import moto from '../assets/martes/moto.png'
     import motoS from '../assets/martes/motosilueta.png'
+    import gishi from '../assets/miercoles/gishi.png'
+    import gishiS from '../assets/miercoles/gishisilueta.png'
+    import retniw from '../assets/miercoles/retniw.png'
+    import retniwS from '../assets/miercoles/retniwsilueta.png'
 
 
     let froppyImg = ref(froppyS);
@@ -33,12 +37,16 @@
     let mocchiImg = ref(mocchiS)
     let yunImg = ref(yunS)
     let motoImg = ref(motoS)
+    let gishiImg = ref(gishiS)
+    let retniwImg = ref(retniwS)
     let whosActive = ref(0)
     const props = defineProps(['day'])
     let socialNetworkMonday = ref("")
     let socialNetworkTuesday = ref("")
+    let socialNetworkWednesday = ref("")
     const isMondayActive = true;
-    const isTuesdayActive = false;
+    const isTuesdayActive = true
+    const isWednesdayActive = false
 
     function handleMouseOver(guest) {
         if(!isMondayActive){
@@ -48,37 +56,47 @@
         switch(guest) {
             case 1:
                 froppyImg.value = froppy
-                break;
+                break
             case 2:
                 amakuImg.value = amaku
-                break;
+                break
             case 3:
                 meruImg.value = meru
-                break;
+                break
             case 4:
                 noxitoImg.value = noxito
-                break;
+                break
             case 5:
                 z_klairImg.value = z_klair
-                break;
+                break
             case 6:
                 vremyaImg.value = vremya
-                break;
+                break
             case 7:
                 if(isTuesdayActive) {
                     mocchiImg.value = mocchi
                 }
-                break;
+                break
             case 8:
                 if(isTuesdayActive) {
                     yunImg.value = yun
                 }
-                break;
+                break
             case 9:
                 if(isTuesdayActive) {
                     motoImg.value = moto
                 }
-                break;
+                break
+            case 10:
+                if(isWednesdayActive) {
+                    gishiImg.value = gishi
+                }
+                break
+            case 11:
+                if(isWednesdayActive) {
+                    retniwImg.value = retniw
+                }
+                break
         }
     }
 
@@ -92,47 +110,57 @@
                 if(whosActive !== guest) {
                     froppyImg.value = froppyS
                 }
-                break;
+                break
             case 2:
                 if(whosActive !== guest) {
                     amakuImg.value = amakuS
                 }
-                break;
+                break
             case 3:
                 if(whosActive !== guest) {
                     meruImg.value = meruS
                 }
-                break;
+                break
             case 4:
                 if(whosActive !== guest) {
                     noxitoImg.value = noxitoS
                 }
-                break;
+                break
             case 5:
                 if(whosActive !== guest) {
                     z_klairImg.value = z_klairS
                 }
-                break;
+                break
             case 6:
                 if(whosActive !== guest) {
                     vremyaImg.value = vremyaS
                 }
-                break;
+                break
             case 7:
                 if(whosActive !== guest && isTuesdayActive){
                     mocchiImg.value = mocchiS
                 }
-                break;
+                break
             case 8:
                 if(whosActive !== guest && isTuesdayActive){
                     yunImg.value = yunS
                 }
-                break;
+                break
             case 9:
-                if(whosActive !== gues && isTuesdayActivet){
+                if(whosActive !== guest && isTuesdayActivet){
                     motoImg.value = motoS
                 }
-                break;
+                break
+            case 10:
+                if(whosActive !== guest && isWednesdayActive) {
+                    gishiImg.value = gishiS
+                }
+                break
+            case 11:
+                if(whosActive !== guest && isWednesdayActive) {
+                    retniwImg.value = retniwS
+                }
+                break
         }
     }
 
@@ -143,53 +171,67 @@
                 froppyImg.value = froppy
                 whosActive = 1
                 socialNetworkMonday.value = 'https://x.com/iamfroppy'
-                break;
+                break
             case 2:
                 amakuImg.value = amaku
                 whosActive = 2
                 socialNetworkMonday.value = 'https://x.com/Amakuwu'
-                break;
+                break
             case 3:
                 meruImg.value = meru
                 whosActive = 3
                 socialNetworkMonday.value = 'https://x.com/Meruiwii'
-                break;
+                break
             case 4:
                 noxitoImg.value = noxito
                 whosActive = 4
                 socialNetworkMonday.value = 'https://x.com/N0cchi_'
-                break;
+                break
             case 5:
                 z_klairImg.value = z_klair
                 whosActive = 5
                 socialNetworkMonday.value = 'https://x.com/z_klair'
-                break;
+                break
             case 6:
                 vremyaImg.value = vremya
                 whosActive = 6
                 socialNetworkMonday.value = 'https://x.com/VremyasCourt'
-                break;
+                break
             case 7:
                 if(isTuesdayActive) {
                     mocchiImg.value = mocchi
                     whosActive = 7
                     socialNetworkTuesday.value = 'https://x.com/mocchipinku'
                 }
-                break;
+                break
             case 8:
                 if(isTuesdayActive) {
                     yunImg.value = yun
                     whosActive = 8
                     socialNetworkTuesday.value = 'https://x.com/_YunCat'
                 }
-                break;
+                break
             case 9:
                 if(isTuesdayActive) {
                     motoImg.value = moto
                     whosActive = 9
                     socialNetworkTuesday.value = 'https://x.com/Syko_Moto'
                 }
-                break;
+                break
+            case 10:
+                if(isWednesdayActive) {
+                    gishiImg.value = gishi
+                    whosActive = 10
+                    socialNetworkWednesday.value = 'https://x.com/Gishimonn'
+                }
+                break
+            case 11:
+                if(isWednesdayActive) {
+                    retniwImg.value = retniw
+                    whosActive = 11
+                    socialNetworkWednesday.value = 'https://x.com/RetniwVT'
+                }
+                break
         }
     }
 
@@ -203,6 +245,8 @@
         mocchiImg.value = mocchiS
         yunImg.value = yunS
         motoImg.value = motoS
+        gishiImg.value = gishiS
+        retniwImg.value = retniwS
 
     }
 
@@ -256,11 +300,22 @@
             <h1>Próximamente más información</h1>
         </div>
     </div>
-    <div v-if="props.day == 3">
+    <div v-if="props.day == 3" class="guest-details flex flex-col justify-center items-center">
         <div class="flex flex-col justify-center items-center">
-            <img id="miercolesS" :src="mockWednesday"/>
+            <img id="dibujos_2x1" src="../assets/miercoles/DIBUJOS_x_SUB.png"/>
         </div>
-        <div class="coming-soon text-center">
+        <div id="miercoles-container" class="bg-cover bg-center h-screen flex items-center justify-center">
+            <div class="grid grid-row-1">
+                <div id="guests-wednesday-first-row" class="flex flex-row items-center justify-center">
+                    <img class="vtuber-wednesday-icon-first-row" :src="gishiImg" @mouseover="handleMouseOver(10)" @mouseout='handleMouseOut(10)' @click='handleClick(10)'/>
+                    <img class="vtuber-wednesday-icon-first-row" :src="retniwImg" @mouseover='handleMouseOver(11)' @mouseout='handleMouseOut(11)' @click='handleClick(11)'/>
+                </div>
+            </div>
+        </div>
+        <div v-if="isTuesdayActive" class="text-center">
+            <a :href="socialNetworkWednesday" target="_blank"> {{ socialNetworkWednesday }} </a>
+        </div>
+        <div v-else class="coming-soon text-center">
             <h1>Próximamente más información</h1>
         </div>
     </div>
@@ -294,6 +349,12 @@
         font-size: 35px
     }
 
+    #dibujos_2x1 {
+        width: 60%;
+        position: relative;
+        top: 55%; 
+    }
+
     #owowa {
         position: relative; 
         top: 55%;
@@ -320,6 +381,17 @@
         margin-bottom: 10px;
         aspect-ratio: 500 / 270;
     }
+
+    #miercoles-container {
+        background-image: url('../assets/miercoles/banner_2x1.png');
+        max-width: 700px;
+        max-height: 470px;
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        aspect-ratio: 500 / 270;
+    }
+
     #pokedibujo {
         max-width: 50%;
         margin-bottom: 10px;
@@ -355,6 +427,13 @@
         height: auto;
         width: 100%;
         margin-right: 4%;
+    }
+
+    .vtuber-wednesday-icon-first-row {
+        max-width: 22%;
+        height: auto;
+        width: 100%;
+        margin-right: 3%;
     }
 
     #guests-first-row {
