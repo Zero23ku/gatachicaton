@@ -101,9 +101,6 @@
     }
 
     function handleMouseOut(guest) {
-        if(!isMondayActive){
-            return
-        }
 
         switch(guest) {
             case 1:
@@ -147,7 +144,8 @@
                 }
                 break
             case 9:
-                if(whosActive !== guest && isTuesdayActivet){
+                if(whosActive !== guest && isTuesdayActive){
+                    console.log("test")
                     motoImg.value = motoS
                 }
                 break
