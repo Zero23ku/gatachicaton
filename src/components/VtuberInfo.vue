@@ -13,7 +13,6 @@
     import noxito from '../assets/lunes/noxito.png'
     import z_klair from '../assets/lunes/Klair.png'
     import vremya from '../assets/lunes/Vremya.png'
-    import mockWednesday from '../assets/miercoles/mock.png'
     import mockThursday from '../assets/jueves/mock.png'
     import mockFriday from '../assets/viernes/mock.png'
     import mocchiS from '../assets/martes/mocchipinkusilueta.png'
@@ -23,9 +22,16 @@
     import moto from '../assets/martes/moto.png'
     import motoS from '../assets/martes/motosilueta.png'
     import gishi from '../assets/miercoles/gishi.png'
-    import gishiS from '../assets/miercoles/gishisilueta.png'
-    import retniw from '../assets/miercoles/retniw.png'
-    import retniwS from '../assets/miercoles/retniwsilueta.png'
+    import gishiS from '../assets/miercoles/gishi_silueta.png'
+    import retniw from '../assets/miercoles/retniw_.png'
+    import retniwS from '../assets/miercoles/retniw_silueta.png'
+    import retniwsThursdayS from '../assets/jueves/retniwsilueta.png'
+    import retniwsThursday from '../assets/jueves/Resniu.png'
+    import pupaS from '../assets/jueves/pupasilueta.png'
+    import pupa from '../assets/jueves/Pupa.png'
+    import ptext from '../assets/jueves/ptext.png'
+    import rtext from '../assets/jueves/rtext.png'
+
 
 
     let froppyImg = ref(froppyS);
@@ -39,19 +45,22 @@
     let motoImg = ref(motoS)
     let gishiImg = ref(gishiS)
     let retniwImg = ref(retniwS)
+    let retniwThursdayImg = ref(retniwsThursdayS)
+    let pupaImg = ref(pupaS)
     let whosActive = ref(0)
+    let hiderText = false
+    let hidepText = false
     const props = defineProps(['day'])
     let socialNetworkMonday = ref("")
     let socialNetworkTuesday = ref("")
     let socialNetworkWednesday = ref("")
+    let socialNetworkThursday = ref("")
     const isMondayActive = true;
     const isTuesdayActive = true
-    const isWednesdayActive = false
+    const isWednesdayActive = true
+    const isThursdayActive = false
 
     function handleMouseOver(guest) {
-        if(!isMondayActive){
-            return
-        }
 
         switch(guest) {
             case 1:
@@ -95,6 +104,18 @@
             case 11:
                 if(isWednesdayActive) {
                     retniwImg.value = retniw
+                }
+                break
+            case 12:
+                if(isThursdayActive) {
+                    retniwThursdayImg.value = retniwsThursday
+                    hiderText = true
+                }
+                break
+            case 13:
+                if(isThursdayActive) {
+                    pupaImg.value = pupa
+                    hidepText = true
                 }
                 break
         }
@@ -145,7 +166,6 @@
                 break
             case 9:
                 if(whosActive !== guest && isTuesdayActive){
-                    console.log("test")
                     motoImg.value = motoS
                 }
                 break
@@ -157,6 +177,18 @@
             case 11:
                 if(whosActive !== guest && isWednesdayActive) {
                     retniwImg.value = retniwS
+                }
+                break
+            case 12:
+                if(whosActive !== guest && isThursdayActive) {
+                    retniwThursdayImg.value = retniwsThursdayS
+                    hiderText = false
+                }
+                break
+            case 13:
+                if(whosActive !== guest && isThursdayActive) {
+                    pupaImg.value = pupaS
+                    hidepText = false
                 }
                 break
         }
@@ -230,6 +262,22 @@
                     socialNetworkWednesday.value = 'https://x.com/RetniwVT'
                 }
                 break
+            case 12:
+                if(isThursdayActive) {
+                    retniwThursdayImg.value = retniwsThursday
+                    whosActive = 12
+                    socialNetworkThursday.value = 'https://x.com/RetniwVT'
+                    hiderText = true
+                }
+                break
+            case 13:
+                if(isThursdayActive) {
+                    pupaImg.value = pupa
+                    whosActive = 13
+                    socialNetworkThursday.value = 'https://x.com/puparoid'
+                    hidepText = true
+                }
+                break
         }
     }
 
@@ -245,6 +293,10 @@
         motoImg.value = motoS
         gishiImg.value = gishiS
         retniwImg.value = retniwS
+        retniwThursdayImg.value = retniwsThursdayS
+        pupaImg.value = pupaS
+        hiderText = false
+        hidepText = false
 
     }
 
@@ -317,11 +369,26 @@
             <h1>Próximamente más información</h1>
         </div>
     </div>
-    <div v-if="props.day == 4">
+    <div v-if="props.day == 4" class="guest-details flex flex-col justify-center items-center">
         <div class="flex flex-col justify-center items-center">
-            <img id="juevesS" :src="mockThursday"/>
+            <img id="dibujos_2x1" src="../assets/jueves/testoxs.png"/>
         </div>
-        <div class="coming-soon text-center">
+        <div id="jueves-container" class="bg-cover bg-center h-screen flex items-center justify-center">
+            <div class="grid grid-row-1">
+                <div id="guests-thursday-first-row" class="flex flex-row items-center justify-center">
+                    <img class="vtuber-thursday-icon-first-row" :src="retniwThursdayImg" @mouseover="handleMouseOver(12)" @mouseout='handleMouseOut(12)' @click='handleClick(12)'/>
+                    <img class="vtuber-thursday-pupa-icon-first-row" :src="pupaImg" @mouseover='handleMouseOver(13)' @mouseout='handleMouseOut(13)' @click='handleClick(13)'/>
+                </div>
+                <div id="guests-thursday-second-row" class="flex flex-row items-center justify-center">
+                    <img class="vtuber-thursday-rtext-second-row" :class="{'invisible' : !hiderText}" :src="rtext"/>
+                    <img class="vtuber-thursday-ptext-second-row" :class="{'invisible' : !hidepText}" :src="ptext"/>
+                </div>
+            </div>
+        </div>
+        <div v-if="isThursdayActive" class="text-center">
+            <a :href="socialNetworkThursday" target="_blank"> {{ socialNetworkThursday }} </a>
+        </div>
+        <div v-else class="coming-soon text-center">
             <h1>Próximamente más información</h1>
         </div>
     </div>
@@ -390,6 +457,16 @@
         aspect-ratio: 500 / 270;
     }
 
+    #jueves-container {
+        background-image: url('../assets/jueves/banner_jueves.png');
+        max-width: 700px;
+        max-height: 470px;
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        aspect-ratio: 500 / 270;
+    }
+
     #pokedibujo {
         max-width: 50%;
         margin-bottom: 10px;
@@ -428,10 +505,45 @@
     }
 
     .vtuber-wednesday-icon-first-row {
-        max-width: 22%;
+        max-width: 33%;
+        height: auto;
+        width: 100%;
+    }
+
+    .vtuber-thursday-icon-first-row, .vtuber-thursday-rtext-second-row {
+        max-width: 24%;
         height: auto;
         width: 100%;
         margin-right: 3%;
+    }
+
+    .vtuber-thursday-rtext-second-row {
+        max-width: 30%;
+    }
+    
+
+    .vtuber-thursday-icon-first-row {
+        position: relative;
+        top: 1.2vw;
+    }
+
+    .vtuber-thursday-pupa-icon-first-row {
+        position: relative;
+        top: 1vw;
+    }
+
+
+    .vtuber-thursday-pupa-icon-first-row, .vtuber-thursday-ptext-second-row {
+        max-width: 33%;
+        height: auto;
+        width: 100%;
+        margin-right: 3%;
+    }
+
+    .vtuber-thursday-ptext-second-row {
+        max-width: 28%;
+        position: relative;
+        left: -4%;
     }
 
     #guests-first-row {
@@ -455,6 +567,14 @@
 
     .vtuber-icon-first-row, .vtuber-icon-second-row {
         cursor: pointer;
+    }
+
+    @media (max-width: 1440px) {
+        
+        .vtuber-thursday-icon-first-row {
+            position: relative;
+            top: 2.5vw;
+        }
     }
 
     @media (max-width: 768px) {
