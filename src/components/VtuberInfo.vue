@@ -31,6 +31,12 @@
     import pupa from '../assets/jueves/Pupa.png'
     import ptext from '../assets/jueves/ptext.png'
     import rtext from '../assets/jueves/rtext.png'
+    import retniwFridayS from '../assets/viernes/resniusilueta.png'
+    import retniwFriday from '../assets/viernes/resniu.png'
+    import nanaS from '../assets/viernes/nanasilueta.png'
+    import nana from '../assets/viernes/nana.png'
+    import rtextf from '../assets/viernes/retniwtext.png'
+    import ntext from '../assets/viernes/nanatext.png'
 
 
 
@@ -47,21 +53,26 @@
     let retniwImg = ref(retniwS)
     let retniwThursdayImg = ref(retniwsThursdayS)
     let pupaImg = ref(pupaS)
+    let retniwFridayImg = ref(retniwFridayS)
+    let nanaImg = ref(nanaS)
     let whosActive = ref(0)
     let hiderText = false
     let hidepText = false
+    let hidenText = false
+    let hiderTextF = false
     const props = defineProps(['day'])
     let socialNetworkMonday = ref("")
     let socialNetworkTuesday = ref("")
     let socialNetworkWednesday = ref("")
     let socialNetworkThursday = ref("")
+    let socialNetworkFriday = ref("")
     const isMondayActive = true;
     const isTuesdayActive = true
     const isWednesdayActive = true
-    const isThursdayActive = false
+    const isThursdayActive = true
+    const isFridayActive = false
 
     function handleMouseOver(guest) {
-
         switch(guest) {
             case 1:
                 froppyImg.value = froppy
@@ -116,6 +127,18 @@
                 if(isThursdayActive) {
                     pupaImg.value = pupa
                     hidepText = true
+                }
+                break
+            case 14:
+                if(isFridayActive) {
+                    nanaImg.value = nana
+                    hidenText = true
+                }
+                break
+            case 15:
+                if(isFridayActive) {
+                    retniwFridayImg.value = retniwFriday
+                    hiderTextF = true
                 }
                 break
         }
@@ -189,6 +212,18 @@
                 if(whosActive !== guest && isThursdayActive) {
                     pupaImg.value = pupaS
                     hidepText = false
+                }
+                break
+            case 14:
+                if(whosActive !== guest && isFridayActive) {
+                    nanaImg.value = nanaS
+                    hidenText = false
+                }
+                break
+            case 15:
+                if(whosActive !== guest && isFridayActive) {
+                    retniwFridayImg.value = retniwFridayS
+                    hiderTextF = false
                 }
                 break
         }
@@ -278,6 +313,22 @@
                     hidepText = true
                 }
                 break
+            case 14:
+                if(isFridayActive) {
+                    nanaImg.value = nana
+                    whosActive = 14
+                    socialNetworkFriday.value = 'https://x.com/Nana_Hare0'
+                    hidenText = true
+                }
+                break
+            case 15:
+                if(isFridayActive) {
+                    retniwFridayImg.value = retniwFriday
+                    whosActive = 15
+                    socialNetworkFriday.value = 'https://x.com/RetniwVT'
+                    hiderTextF = true
+                }
+                break
         }
     }
 
@@ -295,9 +346,12 @@
         retniwImg.value = retniwS
         retniwThursdayImg.value = retniwsThursdayS
         pupaImg.value = pupaS
+        nanaImg.value = nanaS
+        retniwFridayImg.value = retniwFridayS
         hiderText = false
         hidepText = false
-
+        hidenText = false
+        hiderTextF = false
     }
 
 
@@ -392,11 +446,26 @@
             <h1>Próximamente más información</h1>
         </div>
     </div>
-    <div v-if="props.day == 5">
+    <div v-if="props.day == 5" class="guest-details flex flex-col justify-center items-center">
         <div class="flex flex-col justify-center items-center">
-            <img id="viernesS" :src="mockFriday"/>
+            <img id="watchparty-titulo" src="../assets/viernes/testo_viernes.png"/>
         </div>
-        <div class="coming-soon text-center">
+        <div id="viernes-container" class="bg-cover bg-center h-screen flex items-center justify-center">
+            <div class="grid grid-row-1">
+                <div id="guests-friday-first-row" class="flex flex-row items-center justify-center">
+                    <img class="vtuber-friday-icon-first-row" :src="nanaImg" @mouseover='handleMouseOver(14)' @mouseout='handleMouseOut(14)' @click='handleClick(14)'/>
+                    <img class="vtuber-friday-icon-first-row" :src="retniwFridayImg" @mouseover='handleMouseOver(15)' @mouseout='handleMouseOut(15)' @click='handleClick(15)'/>
+                </div>
+                <div id="guests-friday-second-row" class="flex flex-row items-center justify-center">
+                    <img class="vtuber-friday-ntext-second-row" :class="{'invisible' : !hidenText}" :src="ntext"/>
+                    <img class="vtuber-friday-rtext-second-row" :class="{'invisible' : !hiderTextF}" :src="rtextf"/>
+                </div>
+            </div>
+        </div>
+        <div v-if="isFridayActive" class="text-center">
+            <a :href="socialNetworkFriday" target="_blank"> {{ socialNetworkFriday }} </a>
+        </div>
+        <div v-else class="coming-soon text-center">
             <h1>Próximamente más información</h1>
         </div>
     </div>
@@ -421,6 +490,13 @@
     }
 
     #owowa {
+        position: relative; 
+        top: 55%;
+        left: -10%;
+        width: 60%;
+    }
+
+    #watchparty-titulo {
         position: relative; 
         top: 55%;
         left: -10%;
@@ -459,6 +535,16 @@
 
     #jueves-container {
         background-image: url('../assets/jueves/banner_jueves.png');
+        max-width: 700px;
+        max-height: 470px;
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        aspect-ratio: 500 / 270;
+    }
+
+    #viernes-container {
+        background-image: url('../assets/viernes/bannerv.png');
         max-width: 700px;
         max-height: 470px;
         width: 100%;
@@ -517,6 +603,12 @@
         margin-right: 3%;
     }
 
+    .vtuber-friday-icon-first-row {
+        max-width: 35%;
+        height: auto;
+        width: 100%;
+    }
+
     .vtuber-thursday-rtext-second-row {
         max-width: 30%;
     }
@@ -544,6 +636,13 @@
         max-width: 28%;
         position: relative;
         left: -4%;
+    }
+
+    .vtuber-friday-rtext-second-row, .vtuber-friday-ntext-second-row {
+        max-width: 33%;
+        height: auto;
+        width: 100%;
+        margin-right: 3%;
     }
 
     #guests-first-row {
