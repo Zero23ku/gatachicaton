@@ -416,6 +416,12 @@
         harpuiaImg.value = harpuiaS
         mercuryImg.value = mercuryS
         remmusImg.value = remmusS
+        socialNetworkMonday.value = ""
+        socialNetworkTuesday.value = ""
+        socialNetworkTuesday.value = ""
+        socialNetworkThursday.value = ""
+        socialNetworkFriday.value = ""
+        socialNetworkSaturday.value = ""
     }
 
 
