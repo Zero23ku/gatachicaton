@@ -13,8 +13,6 @@
     import noxito from '../assets/lunes/noxito.png'
     import z_klair from '../assets/lunes/Klair.png'
     import vremya from '../assets/lunes/Vremya.png'
-    import mockThursday from '../assets/jueves/mock.png'
-    import mockFriday from '../assets/viernes/mock.png'
     import mocchiS from '../assets/martes/mocchipinkusilueta.png'
     import mocchi from '../assets/martes/mocchipinku.png'
     import yun from '../assets/martes/YunCat.png'
@@ -37,6 +35,12 @@
     import nana from '../assets/viernes/nana.png'
     import rtextf from '../assets/viernes/retniwtext.png'
     import ntext from '../assets/viernes/nanatext.png'
+    import harpuia from '../assets/sabado/hardpollas.png'
+    import harpuiaS from '../assets/sabado/harpuiasilueta.png'
+    import mercury from '../assets/sabado/mercury.png'
+    import mercuryS from '../assets/sabado/mercurysilueta.png'
+    import remmus from '../assets/sabado/remmus.png'
+    import remmusS from '../assets/sabado/remmussilueta.png'
 
 
 
@@ -55,6 +59,9 @@
     let pupaImg = ref(pupaS)
     let retniwFridayImg = ref(retniwFridayS)
     let nanaImg = ref(nanaS)
+    let harpuiaImg = ref(harpuiaS)
+    let remmusImg = ref(remmusS)
+    let mercuryImg = ref(mercuryS)
     let whosActive = ref(0)
     let hiderText = false
     let hidepText = false
@@ -66,11 +73,14 @@
     let socialNetworkWednesday = ref("")
     let socialNetworkThursday = ref("")
     let socialNetworkFriday = ref("")
+    let socialNetworkSaturday = ref("")
     const isMondayActive = true;
     const isTuesdayActive = true
     const isWednesdayActive = true
     const isThursdayActive = true
-    const isFridayActive = false
+    const isFridayActive = true
+    const isSaturdayActive = false
+    const isSundayActive = false
 
     function handleMouseOver(guest) {
         switch(guest) {
@@ -139,6 +149,21 @@
                 if(isFridayActive) {
                     retniwFridayImg.value = retniwFriday
                     hiderTextF = true
+                }
+                break
+            case 16:
+                if(isSaturdayActive) {
+                    harpuiaImg.value = harpuia
+                }
+                break
+            case 17:
+                if(isSaturdayActive) {
+                    mercuryImg.value = mercury
+                }
+                break
+            case 18:
+                if(isSaturdayActive) {
+                    remmusImg.value = remmus
                 }
                 break
         }
@@ -224,6 +249,21 @@
                 if(whosActive !== guest && isFridayActive) {
                     retniwFridayImg.value = retniwFridayS
                     hiderTextF = false
+                }
+                break
+            case 16:
+                if(whosActive !== guest && isSaturdayActive) {
+                    harpuiaImg.value = harpuiaS
+                }
+                break
+            case 17:
+                if(whosActive !== guest && isSaturdayActive) {
+                    mercuryImg.value = mercuryS
+                }
+                break
+            case 18:
+                if(whosActive !== guest && isSaturdayActive) {
+                    remmusImg.value = remmusS
                 }
                 break
         }
@@ -329,6 +369,27 @@
                     hiderTextF = true
                 }
                 break
+            case 16:
+                if(isSaturdayActive) {
+                    harpuiaImg.value = harpuia
+                    whosActive = 16
+                    socialNetworkSaturday.value = 'https://x.com/HarpuiaVT'
+                }
+                break
+            case 17:
+                if(isSaturdayActive) {
+                    meruImg.value = mercury
+                    whosActive = 17
+                    socialNetworkSaturday.value = 'https://x.com/ItsMercuryVT'
+                }
+                break
+            case 18:
+                if(isSaturdayActive) {
+                    remmusImg.value = remmus
+                    whosActive = 18
+                    socialNetworkSaturday.value = 'https://x.com/RemmusCobalt'
+                }
+                break
         }
     }
 
@@ -352,6 +413,9 @@
         hidepText = false
         hidenText = false
         hiderTextF = false
+        harpuiaImg.value = harpuiaS
+        mercuryImg.value = mercuryS
+        remmusImg.value = remmusS
     }
 
 
@@ -469,6 +533,34 @@
             <h1>Próximamente más información</h1>
         </div>
     </div>
+    <div v-if="props.day == 6" class="guest-details flex flex-col justify-center items-center">
+        <div class="flex flex-col justify-center items-center">
+            <img id="contentw-titulo" src="../assets/sabado/texts.png"/>
+        </div>
+        <div id="sabado-container" class="bg-cover bg-center h-screen flex items-center justify-center">
+            <div class="grid grid-row-1">
+                <div id="guests-saturday-first-row" class="flex flex-row items-center justify-center">
+                    <img class="vtuber-saturday-icon-first-row" :src="harpuiaImg" @mouseover='handleMouseOver(16)' @mouseout='handleMouseOut(16)' @click='handleClick(16)'/>
+                    <img class="vtuber-saturday-icon-first-row" :src="mercuryImg" @mouseover='handleMouseOver(17)' @mouseout='handleMouseOut(17)' @click='handleClick(17)'/>
+                    <img class="vtuber-saturday-icon-first-row vtuber-saturday-icon-first-row-last" :src="remmusImg" @mouseover='handleMouseOver(18)' @mouseout='handleMouseOut(18)' @click='handleClick(18)'/>
+                </div>
+            </div>
+        </div>
+        <div v-if="isSaturdayActive" class="text-center">
+            <a :href="socialNetworkSaturday" target="_blank"> {{ socialNetworkSaturday }} </a>
+        </div>
+        <div v-else class="coming-soon text-center">
+            <h1>Próximamente más información</h1>
+        </div>
+    </div>
+    <div v-if="props.day == 7" class="guest-details flex flex-col justify-center items-center">
+        <div v-if="isSundayActive" class="text-center">
+            <a :href="socialNetworkSaturday" target="_blank"> {{ socialNetworkSaturday }} </a>
+        </div>
+        <div v-else class="coming-soon text-center">
+            <h1>?????????</h1>
+        </div>
+    </div>
 </template>
 <style scoped>
     p{
@@ -489,7 +581,7 @@
         top: 55%; 
     }
 
-    #owowa {
+    #owowa, #contentw-titulo {
         position: relative; 
         top: 55%;
         left: -10%;
@@ -545,6 +637,16 @@
 
     #viernes-container {
         background-image: url('../assets/viernes/bannerv.png');
+        max-width: 700px;
+        max-height: 470px;
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        aspect-ratio: 500 / 270;
+    }
+
+    #sabado-container {
+        background-image: url('../assets/sabado/banner.png');
         max-width: 700px;
         max-height: 470px;
         width: 100%;
@@ -643,6 +745,17 @@
         height: auto;
         width: 100%;
         margin-right: 3%;
+    }
+
+    .vtuber-saturday-icon-first-row {
+        max-width: 25%;
+        height: auto;
+        width: 100%;
+        margin-right: 4%;
+    }
+
+    .vtuber-saturday-icon-first-row-last {
+        margin-right: 0% !important;
     }
 
     #guests-first-row {

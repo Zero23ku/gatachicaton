@@ -74,7 +74,7 @@
                     </div>
                     <div class="text-container">
                         <h1 class="content-center text-center">Gatachicaton</h1>
-                        <h2 class="content-center text-center ">Del Lunes 5 al Viernes 9 de Agosto</h2>
+                        <h2 class="content-center text-center ">Del Lunes 5 al Viernes 11 de Agosto</h2>
                         <h2 class="content-center text-center -rotate-3 grow"><a href="https://twitch.tv/retniuwu">twitch.tv/retniuwu</a></h2>
                         
                     </div>
@@ -102,6 +102,8 @@
                     <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 3}"><a @click="selectDay(3)" class=""><h2>Miércoles</h2></a></div>
                     <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 4}"><a @click="selectDay(4)" class=""><h2>Jueves</h2></a></div>
                     <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 5}"><a @click="selectDay(5)" class=""><h2>Viernes</h2></a></div>
+                    <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 6}"><a @click="selectDay(6)" class=""><h2>Sabado</h2></a></div>
+                    <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 7}"><a @click="selectDay(7)" class=""><h2>Domingo</h2></a></div>
                 </div>
                 <VtuberInfo :day="vtuberData.day"/>
     
