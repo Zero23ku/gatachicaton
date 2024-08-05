@@ -80,6 +80,7 @@
     const isThursdayActive = true
     const isFridayActive = true
     const isSaturdayActive = true
+    
     const isSundayActive = false
 
     function handleMouseOver(guest) {
