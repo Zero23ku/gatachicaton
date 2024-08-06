@@ -271,7 +271,7 @@
     }
 
     function handleClick(guest) {
-        hideEveryone()
+        hideEveryone(guest)
         switch(guest) {
             case 1:
                 froppyImg.value = froppy
@@ -394,29 +394,66 @@
         }
     }
 
-    function hideEveryone() {
-        froppyImg.value = froppyS
-        amakuImg.value = amakuS
-        meruImg.value = meruS
-        noxitoImg.value = noxitoS
-        z_klairImg.value = z_klairS
-        vremyaImg.value = vremyaS
-        mocchiImg.value = mocchiS
-        yunImg.value = yunS
-        motoImg.value = motoS
-        gishiImg.value = gishiS
-        retniwImg.value = retniwS
-        retniwThursdayImg.value = retniwsThursdayS
-        pupaImg.value = pupaS
-        nanaImg.value = nanaS
-        retniwFridayImg.value = retniwFridayS
-        hiderText = false
-        hidepText = false
-        hidenText = false
-        hiderTextF = false
-        harpuiaImg.value = harpuiaS
-        mercuryImg.value = mercuryS
-        remmusImg.value = remmusS
+    function hideEveryone(guest) {
+        if(guest !== 1) {
+            froppyImg.value = froppyS
+        }
+        if(guest !== 2) {
+            amakuImg.value = amakuS
+        }
+        if(guest !== 3) {
+            meruImg.value = meruS
+        }
+        if(guest !== 4) {
+            noxitoImg.value = noxitoS
+        }
+        if(guest !== 5) {
+            z_klairImg.value = z_klairS
+        }
+        if(guest !== 6) {
+            vremyaImg.value = vremyaS
+        }
+        if(guest !== 7) {
+            mocchiImg.value = mocchiS
+        }
+        if(guest !== 8) {
+            yunImg.value = yunS
+        }
+        if(guest !== 9) {
+            motoImg.value = motoS
+        }
+        if(guest !== 10) {
+            gishiImg.value = gishiS
+        }
+        if(guest !== 11) {
+            retniwImg.value = retniwS
+        }
+        if(guest !== 12) {
+            retniwThursdayImg.value = retniwsThursdayS
+            hiderText = false
+        }
+        if(guest !== 13) {
+            pupaImg.value = pupaS
+            hidepText = false
+        }
+        if(guest !== 14) {
+            nanaImg.value = nanaS
+            hidenText = false
+        }
+        if(guest !== 15) {
+            retniwFridayImg.value = retniwFridayS
+            hiderTextF = false
+        }
+        if(guest !== 16) {
+            harpuiaImg.value = harpuiaS
+        }
+        if(guest !== 17) {
+            mercuryImg.value = mercuryS
+        }
+        if(guest !== 18) {
+            remmusImg.value = remmusS
+        }
+     
         socialNetworkMonday.value = ""
         socialNetworkTuesday.value = ""
         socialNetworkTuesday.value = ""
