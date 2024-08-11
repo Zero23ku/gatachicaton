@@ -99,9 +99,9 @@
                 <div id="guestsDay" class="flex flex-col items-center justify-center">
                     <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 1}"><a @click="selectDay(1)" class=""><h2 class="line-through">Lunes</h2></a></div>
                     <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 2}"><a @click="selectDay(2)" class=""><h2 class="line-through">Martes</h2></a></div>
-                    <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 3}"><a @click="selectDay(3)" class=""><h2>Miércoles</h2></a></div>
-                    <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 4}"><a @click="selectDay(4)" class=""><h2>Jueves</h2></a></div>
-                    <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 5}"><a @click="selectDay(5)" class=""><h2>Viernes</h2></a></div>
+                    <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 3}"><a @click="selectDay(3)" class=""><h2 class="line-through">Miércoles</h2></a></div>
+                    <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 4}"><a @click="selectDay(4)" class=""><h2 class="line-through">Jueves</h2></a></div>
+                    <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 5}"><a @click="selectDay(5)" class=""><h2 class="line-through">Viernes</h2></a></div>
                     <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 6}"><a @click="selectDay(6)" class=""><h2>Sabado</h2></a></div>
                     <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 7}"><a @click="selectDay(7)" class=""><h2>Domingo</h2></a></div>
                 </div>
