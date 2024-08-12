@@ -93,6 +93,15 @@
                 </p>
             </div>
         </div>
+        <div id="helpus" class="body-container donation-container mb-28">
+            <h1 class="content-center text-center">GRACIAS POR AYUDAR</h1>
+            <div class="flex flex-col justify-center items-center">
+                <p style="font-size: 1.5rem; line-height: 2rem;">Se consiguió el 39.8% de la meta :D</p>
+                <p style="font-size: 1.5rem; line-height: 2rem;">Aún puedes ayudar donando a través de</p>
+                <a href="https://esponsor.com/retniuwu"><img src="./assets/esponsor_logo.svg"/></a>
+            </div>
+        </div>
+
         <div id="guests" class="body-container guest-container">
             <h1 class="content-center text-center">Actividades</h1>
             <div v-if="renderGuests" class="grid grid-col-2 gap-4">
@@ -102,20 +111,14 @@
                     <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 3}"><a @click="selectDay(3)" class=""><h2 class="line-through">Miércoles</h2></a></div>
                     <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 4}"><a @click="selectDay(4)" class=""><h2 class="line-through">Jueves</h2></a></div>
                     <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 5}"><a @click="selectDay(5)" class=""><h2 class="line-through">Viernes</h2></a></div>
-                    <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 6}"><a @click="selectDay(6)" class=""><h2>Sabado</h2></a></div>
-                    <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 7}"><a @click="selectDay(7)" class=""><h2>Domingo</h2></a></div>
+                    <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 6}"><a @click="selectDay(6)" class=""><h2 class="line-through">Sabado</h2></a></div>
+                    <div class="mb-2 cursor-pointer mx-10 animation" :class="{'-rotate-3': activeDay === 7}"><a @click="selectDay(7)" class=""><h2 class="line-through">Domingo</h2></a></div>
                 </div>
                 <VtuberInfo :day="vtuberData.day"/>
     
             </div>
         </div>
-        <div id="helpus" class="body-container donation-container mb-28">
-            <h1 class="content-center text-center">Donaciones</h1>
-            <div class="donations-content flex flex-col justify-center items-center">
-                <p>Apoya la causa donando por ESPONSOR</p>
-                <a href="https://esponsor.com/retniuwu"><img src="./assets/esponsor_logo.svg"/></a>
-            </div>
-        </div>
+        
         <footer>
             <div class="flex flex-col justify-center items-center">
                 <p>Creado por <a href="https://twitter.com/harpuiavt">Harpuia 🐸</a></p>
